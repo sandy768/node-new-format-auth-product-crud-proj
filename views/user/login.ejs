@@ -1,0 +1,34 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <h1 class="text-center text-success mt-5 mb-5 fw-bold">Sign In</h1>
+        <div class="mt-3 mb-5 mx-4">
+            <form action="/user/postlogdata" method="POST" autocomplete="off">
+                <div class="mb-3">
+                    <p class="text-danger fs-6"><%=success_verify%></p>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+                <div class="mb-3">
+                    <p class="text-danger fs-6"><%=errorMail%></p>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <div class="mb-3">
+                    <p class="text-danger fs-6"><%=errorPass%></p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="submit" class="btn btn-lg btn-success" value="Login">
+                </div>
+            </form>
+        </div>
+    </main>

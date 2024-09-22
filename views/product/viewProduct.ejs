@@ -1,0 +1,50 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <%if(products.length>0){%>
+            <h1 class="text-center text-success fw-bold mt-4 mb-5">Products List</h1>
+            <div class="mx-5">
+                <table class="table table-info table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Serial No.</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Updation</th>
+                        <th scope="col">Deletion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <%for(let i=0;i<products.length;i++){%>
+                    <tr>
+                        <td class="px-4"><%=i+1%>.</td>
+                        <td class="px-3"><%=products[i].productName%></td>
+                        <td class="px-3"><%=products[i].productPrice%></td>
+                        <td class="px-3"><img src="/products/<%=products[i].productImage%>" alt="..." height="50px" width="50px"></td>
+                        <td>
+                          <form action="/updateproductdata" method="POST">
+                            <input type="hidden" value="<%=products[i]._id%>" name="pid" id="pid">
+                            <input type="submit" value="Update" class="btn btn-warning">
+                          </form>
+                        </td>
+                        <td>
+                          <form action="/deleteproductdata" method="POST">
+                            <input type="hidden" value="<%=products[i]._id%>" name="pid" id="pid">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </form>
+                        </td>
+                      </tr>
+                    <%}%>
+                    </tbody>
+                  </table>
+            </div>
+        <%}else{%>
+            <h1>Data not found</h1>
+        <%}%>
+    </main>
