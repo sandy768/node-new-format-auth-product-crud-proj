@@ -168,21 +168,25 @@ class UserController{
                 console.log("Error to collect login data",err);
             }
         }
-        // userAuth(req,res,next){
-        //     try{
-        //         if(req.user){
-        //             next();
-        //         }
-        //         else{
-        //             console.log("Need to login first");
-        //             req.flash('err-auth','You need to login first');
-        //             res.redirect('/user/getlogdata');
-        //         }
-        //     }
-        //     catch(err){
-        //         console.log("Error to authorize user",err);
-        //     }
-        // }
+        userAuth(req,res,next){
+            try{
+                if(req.user){
+                    next();
+                }
+                else{
+                    // console.log("Need to login first");
+                    req.flash('err-auth','You need to login first');
+                    res.redirect('/user/getlogdata');
+                }
+            }
+            catch(err){
+                console.log("Error to authorize user",err);
+            }
+        }
+        async logout(req,res){
+            await res.clearCookie('token_data');
+            res.redirect('/user/getlogdata');
+        }
 }
 
 const userController=new UserController();

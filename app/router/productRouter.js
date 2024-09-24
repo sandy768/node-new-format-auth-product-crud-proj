@@ -5,9 +5,9 @@ const userController=require('../module/webservice/userController');
 const uploadProductImg=require('../helper/productImage');
 const AuthJwt=require('../middleware/isAuth');
 
-productRouter.get('/getproductdata',AuthJwt.authJwt,ProductController.getForm);
+productRouter.get('/getproductdata',AuthJwt.authJwt,userController.userAuth,ProductController.getForm);
 productRouter.post('/postproductdata',uploadProductImg.single("productImage"),ProductController.addProduct);
-productRouter.get('/viewproductdata',AuthJwt.authJwt,ProductController.viewProduct);
+productRouter.get('/viewproductdata',AuthJwt.authJwt,userController.userAuth,ProductController.viewProduct);
 productRouter.post('/updateproductdata',ProductController.updateProduct);
 productRouter.post('/newproductdata',uploadProductImg.single("productImage"),ProductController.newProduct);
 productRouter.post('/deleteproductdata',ProductController.deleteProduct);

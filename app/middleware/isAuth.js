@@ -1,11 +1,11 @@
 const jwt=require('jsonwebtoken');
 
 class AuthJwt{
-    async authJwt(req,res,next){
+    authJwt(req,res,next){
         try{
             if(req.cookies && req.cookies.token_data){
-                jwt.verify(req.cookies.token_data,process.env.SECRET_KEY,(data,error)=>{
-                    console.log(data);
+                jwt.verify(req.cookies.token_data,process.env.SECRET_KEY,(err,data)=>{
+                    // console.log(data);
                     req.user=data;
                     next();
                 })

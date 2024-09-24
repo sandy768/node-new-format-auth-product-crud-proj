@@ -8,5 +8,6 @@ userRouter.post('/user/postregdata',uploadUserImages.array('user_image',2),userC
 userRouter.get('/user/mail_confirmation/:email/:token',userController.mailVerification);
 userRouter.get('/user/getlogdata',userController.getLogin);
 userRouter.post('/user/postlogdata',userController.postLogin);
+userRouter.get('/user/logout',userController.logout);
 
 module.exports=userRouter;
