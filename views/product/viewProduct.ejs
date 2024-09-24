@@ -26,7 +26,7 @@
                         <td class="px-4"><%=i+1%>.</td>
                         <td class="px-3"><%=products[i].productName%></td>
                         <td class="px-3"><%=products[i].productPrice%></td>
-                        <td class="px-3"><img src="/products/<%=products[i].productImage%>" alt="..." height="50px" width="50px"></td>
+                        <td class="px-3"><img src="/uploads/products/<%=products[i].productImage%>" alt="..." height="50px" width="50px"></td>
                         <td>
                           <form action="/updateproductdata" method="POST">
                             <input type="hidden" value="<%=products[i]._id%>" name="pid" id="pid">

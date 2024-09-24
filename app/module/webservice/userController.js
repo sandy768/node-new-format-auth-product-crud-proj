@@ -23,6 +23,7 @@ class UserController{
 
         res.render('user/registration',{
             title:"Sign Up",
+            path:"/",
             successRegis:regSuccess,
             errorReg:regErr,
             errorVerify:verifyErr,
@@ -124,11 +125,16 @@ class UserController{
             let errPass=req.flash('err-pass');
             let passErr=errPass.length>0?errPass[0]:null;
 
+            let errAuth=req.flash('err-auth');
+            let AuthErr=errAuth.length>0?errAuth[0]:null;
+
             res.render('user/login',{
                 title:'Sign In',
+                path:"/user/getlogdata",
                 success_verify:verifySuccess,
                 errorMail:mailErr,
                 errorPass:passErr,
+                errorAuth:AuthErr,
             });
         }
 
@@ -146,7 +152,7 @@ class UserController{
                             expires:new Date(Date.now()+3600000),
                             httpOnly:true,
                         });
-                        res.redirect('/getproductdata');
+                        return res.redirect('/getproductdata');
                     }
                     else{
                         req.flash('err-pass','Incorrect password');
@@ -162,6 +168,21 @@ class UserController{
                 console.log("Error to collect login data",err);
             }
         }
+        // userAuth(req,res,next){
+        //     try{
+        //         if(req.user){
+        //             next();
+        //         }
+        //         else{
+        //             console.log("Need to login first");
+        //             req.flash('err-auth','You need to login first');
+        //             res.redirect('/user/getlogdata');
+        //         }
+        //     }
+        //     catch(err){
+        //         console.log("Error to authorize user",err);
+        //     }
+        // }
 }
 
 const userController=new UserController();

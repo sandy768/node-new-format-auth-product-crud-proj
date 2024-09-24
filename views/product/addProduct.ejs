@@ -9,6 +9,7 @@
         <h1 class="text-center text-success fw-bold mt-4">Add Product</h1>
         <div class="mt-5 mb-5 mx-4">
             <form action="/postproductdata" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <input type="text" class="mx-5 mt-3 mb-3" name="user_email" id="user_email" value="<%=userData.email%>">
                 <div class="mb-3">
                   <label for="productName" class="form-label">Product Name</label>
                   <input type="text" class="form-control" name="productName" id="productName">

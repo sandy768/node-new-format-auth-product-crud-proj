@@ -4,10 +4,13 @@ const path=require('path');
 const fs=require('fs');
 
 class ProductController{
-     getForm(req,res){
+    getForm(req,res){
+        let user_details=req.user.userDetails;
             res.render('product/addProduct',{
-                title:"Add Product"
-            })
+                title:"Add Product",
+                path:"/getproductdata",
+                userData:user_details,
+            });
     }
     
     async addProduct(req,res){
@@ -34,6 +37,7 @@ class ProductController{
             
             res.render('product/viewProduct',{
                 title:"All Products",
+                path:"/viewproductdata",
                 products:view_products,
             });
         }

@@ -8,16 +8,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="/">Sign Up</a>
+            <a class="nav-link fs-5 <%=path==='/'?'active':' '%>" aria-current="page" href="/">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="/user/getlogdata">Sign In</a>
+            <a class="nav-link fs-5 <%=path==='/user/getlogdata'?'active':' '%>" aria-current="page" href="/user/getlogdata">Sign In</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="/getproductdata">Add Product</a>
+            <a class="nav-link fs-5 <%=path==='/getproductdata'?'active':' '%>" aria-current="page" href="/getproductdata">Add Product</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="/viewproductdata">View Product</a>
+            <a class="nav-link fs-5 <%=path==='/viewproductdata'?'active':' '%>" aria-current="page" href="/viewproductdata">View Product</a>
           </li>
         </ul>
       </div>

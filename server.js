@@ -16,7 +16,8 @@ appServer.set("view engine","ejs");
 appServer.set("views","views");
 
 appServer.use(express.urlencoded({extended:true}));
-appServer.use(express.static(path.join(__dirname,"..","uploads")));
+appServer.use('/Public',express.static('Public'));
+appServer.use('/uploads',express.static('uploads'));
 
 appServer.use(session({
     secret:'secret9h6f738hs829ty237ht7hsuj',
